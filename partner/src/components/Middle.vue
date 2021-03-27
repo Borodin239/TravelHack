@@ -13,16 +13,17 @@ import Register from "@/components/middle/Register";
 
 export default {
   name: "Middle",
-  needToShowComments: false,
   data: function () {
     return {
       page: "Index",
-      post: undefined
     }
   },
   components: {
     Register,
     Index,
+  },
+  beforeCreate() {
+    this.$root.$on("onChangePage", (page) => this.page = page)
   },
 }
 </script>

@@ -5,10 +5,7 @@
 </template>
 
 <script>
-export default {
-  name: "Index",
-  props: ["users"],
-}
+
 </script>
 
 <style scoped>

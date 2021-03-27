@@ -17,7 +17,7 @@
         <a href="#" @click.prevent="onLogout">Logout</a>
       </template>
       <template v-else>
-        <a class="link" href="#" @click.prevent="changePage('Enter')">Enter</a>
+        <a class="link" href="#" @click.prevent="changePage('Register')">Enter</a>
         <p1 class="link">|</p1>
         <a class="link" href="#" @click.prevent="changePage('Register')">Register</a>
       </template>

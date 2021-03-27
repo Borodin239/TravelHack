@@ -1,6 +1,6 @@
 <template>
   <div class="register form-box">
-    <div class="header">Register</div>
+    <div class="header">Register or Login</div>
     <div class="body">
       <form @submit.prevent="onRegister">
         <div class="field">
@@ -56,5 +56,6 @@ export default {
 img {
   width: 20rem;
   padding-left: 5rem;
+  padding-bottom: 1rem;
 }
 </style>
