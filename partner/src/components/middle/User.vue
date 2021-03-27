@@ -53,6 +53,14 @@ export default {
   padding-left: -2rem;
   float: left;
 }
+.header {
+  padding-left: 8rem;
+  font-size: 1.5rem;
+  border-color: white;
+}
+.register {
+  border-color: white;
+}
 .right-part {
   display: inline-block;
   position: relative;
@@ -61,6 +69,7 @@ export default {
 }
 li {
   list-style-type: none;
+  padding-bottom: 0.5rem;
 }
 .left-part li {
   font-weight: bold;
