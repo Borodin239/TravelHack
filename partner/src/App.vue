@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Header :userId="userId" :users="users"/>
+    <Header/>
+    <Middle/>
+    <Footer/>
   </div>
 </template>
 
