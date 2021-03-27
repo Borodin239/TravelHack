@@ -135,3 +135,46 @@ aside section .footer a:after {
     background-color: var(--message-background-color);
     text-align: center;
 }
+
+.button-field input {
+    appearance: none;
+    width: 8rem;
+    height: 2.5rem;
+    background-color: #003580;
+    outline: none;
+}
+
+.button-field:before {
+    display: inline-block;
+    width: 0.1rem;
+    padding-left: 0.1rem;
+    content: "";
+}
+
+.button-field input:checked {
+    appearance: revert;
+}
+
+.button-field input {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.right-part {
+    display: inline-block;
+    position: relative;
+    float: right;
+}
+li {
+    list-style-type: none;
+    padding-bottom: 0.5rem;
+}
+.left-part li {
+    font-weight: bold;
+}
+
+.left-part {
+    display: inline-block;
+    position: relative;
+    float: left;
+}

@@ -4,7 +4,7 @@
       Добро пожаловать на сайт партнёра! Войдите в личный кабинет.
     </div>
     <div class="button-field">
-      <input type="submit" class="field" value="Купить билеты" @click.prevent="changePage('User')"/>
+      <input type="submit" class="field" value="Купить билеты" @click.prevent="changePage('Ticket')"/>
     </div>
   </div>
 </template>
@@ -31,7 +31,8 @@ div {
 input {
   appearance: none;
   width: 18rem;
-  height: 2.5rem;
+  font-size: 2rem;
+  height: 3rem;
   background-color: #003580;
   outline: none;
 }
