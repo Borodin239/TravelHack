@@ -14,9 +14,8 @@
 }
 
 html {
-    padding: 1rem;
     min-width: 600px;
-    max-width: 1280px;
+    max-width: 1920px;
     margin: 0 auto;
 }
 
