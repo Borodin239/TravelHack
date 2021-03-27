@@ -21,7 +21,7 @@
         </div>
         <div class="field error">{{ error }}</div>
         <div class="button-field">
-          <input type="submit" value="Register">
+          <input type="submit" class="register" value="Register">
         </div>
         <div>
           <a href="#"><img src="../../assets/img/login-russpass.png" alt="russpass"></a>
@@ -57,5 +57,31 @@ img {
   width: 20rem;
   padding-left: 5rem;
   padding-bottom: 1rem;
+}
+.field {
+  padding-right: 2rem;
+}
+
+.button-field input {
+  appearance: none;
+  width: 8rem;
+  height: 2.5rem;
+  background-color: #003580;
+  outline: none;
+}
+
+.button-field:before {
+  display: inline-block;
+  width: 0.1rem;
+  padding-left: 0.1rem;
+  content: "";
+}
+
+.button-field input:checked {
+  appearance: revert;
+}
+
+.button-field input {
+  color: white;
 }
 </style>

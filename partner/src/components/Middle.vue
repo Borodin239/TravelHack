@@ -24,7 +24,7 @@ export default {
   },
   beforeCreate() {
     this.$root.$on("onChangePage", (page) => this.page = page)
-  },
+  }
 }
 </script>
 
