@@ -20,8 +20,8 @@
           </div>
         </div>
         <div class="field error">{{ error }}</div>
-        <div class="button-field">
-          <input type="submit" class="register" value="Register">
+          <div class="button-field">
+          <input type="submit" class="register" value="Register" @click.prevent="changePage('User')">
         </div>
         <div>
           <a href="#"><img src="../../assets/img/login-russpass.png" alt="russpass"></a>
@@ -44,6 +44,9 @@ export default {
   methods: {
     onRegister: function () {
       this.$root.$emit("onRegister", this.login, this.name);
+    },
+    changePage: function (page) {
+      this.$root.$emit("onChangePage", page);
     }
   },
   beforeCreate() {

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <Middle />
+    <Middle :user="user"/>
     <Footer/>
   </div>
 </template>
@@ -21,6 +21,8 @@ export default {
   data: function () {
     return this.$root.$data;
   },
+  props: ["user"]
+  ,
   beforeCreate() {
     this.$root.$on("onEnter", (login, password) => {
       if (password === "") {
