@@ -49,8 +49,6 @@ header .enter-or-register-box {
 }
 
 header nav {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
     padding: 0.75rem 0.25rem;
     margin-top: 1rem;
 }

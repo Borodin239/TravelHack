@@ -1,7 +1,9 @@
 <template>
   <header>
     <a href="#" @click.prevent="changePage('Index')">
-      <img src="../assets/img/logo.png" alt="Codeforces" title="Codeforces"/>
+      <div class="site-name">
+        <p1>Partner</p1><p2>.com</p2>
+      </div>
     </a>
     <div class="languages">
       <a href="#"><img src="../assets/img/gb.png" alt="In English" title="In English"/></a>
@@ -16,18 +18,12 @@
         <a href="#" @click.prevent="onLogout">Logout</a>
       </template>
       <template v-else>
-        <a href="#" @click.prevent="changePage('Enter')">Enter</a>
-        |
-        <a href="#" @click.prevent="changePage('Register')">Register</a>
+        <a class="link" href="#" @click.prevent="changePage('Enter')">Enter</a>
+        <p1 class="link">|</p1>
+        <a class="link" href="#" @click.prevent="changePage('Register')">Register</a>
       </template>
     </div>
     <nav>
-      <ul>
-        <li><a href="#" @click.prevent="changePage('Index')">Home</a></li>
-        <li><a href="#" @click.prevent="changePage('Users')">Users</a></li>
-        <li v-if="userId"><a href="#" @click.prevent="changePage('WritePost')">Write Post</a></li>
-        <li v-if="userId"><a href="#" @click.prevent="changePage('EditPost')">Edit Post</a></li>
-      </ul>
     </nav>
   </header>
 
@@ -50,5 +46,24 @@ export default {
 </script>
 
 <style scoped>
-
+header {
+  font-size: 1.5rem;
+  background: #003580;
+}
+p1 {
+  color: white;
+}
+p2 {
+  color: dodgerblue;
+}
+.site-name {
+  padding-top: 1.8rem;
+  padding-left: 1rem;
+}
+.languages {
+  padding-right: 0.5rem;
+}
+.link {
+  color: white;
+}
 </style>
