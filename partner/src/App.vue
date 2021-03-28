@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <Middle :user="user"/>
+    <Middle :user="user" :fields="fields" :required="required"/>
     <Footer/>
   </div>
 </template>
@@ -10,6 +10,7 @@
 import Header from "./components/Header";
 import Middle from "./components/Middle";
 import Footer from "./components/Footer";
+import axios from "axios";
 
 export default {
   name: 'App',
@@ -19,10 +20,24 @@ export default {
     Header
   },
   data: function () {
-    return this.$root.$data;
+    return {
+      user: "Gosha",
+      fields: {
+        1: {id: 1, name: "First name", data: "Георгий"},
+        2: {id: 2, name: "Last name", data: "Корнеев"},
+        3: {id: 3, name: "Father name", data: "Александрович"},
+        4: {id: 4, name: "Gender", data: "Муж"},
+        5: {id: 5, name: "Company points", data: "Inf"}
+      },
+      required: {
+        1: {id: 1, name: "First name"},
+        2: {id: 2, name: "Last name"},
+        3: {id: 3, name: "Passport number"},
+        4: {id: 4, name: "Gender"},
+        5: {id: 5, name: "Age"},
+      }
+    }
   },
-  props: ["user"]
-  ,
   beforeCreate() {
     this.$root.$on("onEnter", (login, password) => {
       if (password === "") {
@@ -37,6 +52,34 @@ export default {
         this.userId = users[0].id;
         this.$root.$emit("onChangePage", "Index");
       }
+    });
+
+    this.$root.$on("onRegister", () => {
+      let config = {
+        headers: {
+          "Authorization": "Bearer 15c0f3ac-7ac3-4c3a-8bdb-9a7ed8171901",
+        }
+      }
+      axios.get("http://localhost:8082/api/user_info", config).then(response => {
+        alert(response.data)
+      });
+      let arr = {};
+      for (let i = 0; i < this.required.length; ++i) {
+        let isInInput = false;
+        let id = -1;
+        for (let j = 0; j < this.fields.length; ++j) {
+          if (this.required[i].name === this.fields[j].name) {
+            isInInput = true;
+            id = j;
+          }
+        }
+        if (isInInput === true) {
+          arr[this.required[i].id] = {name: this.required[i].name, data: this.fields[id].data};
+        } else {
+          arr[this.required[i].id] = {name: this.required[i].name, data: "-"};
+        }
+      }
+      this.fields = arr;
     });
 
     this.$root.$on("onLogout", () => this.userId = null);

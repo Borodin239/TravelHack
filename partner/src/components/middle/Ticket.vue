@@ -5,43 +5,13 @@
     </div>
     <div class="body">
       <ul class="left-part">
-        <li>
-          <span>Имя</span>
-        </li>
-        <li>
-          <span>Фамилия</span>
-        </li>
-        <li>
-          <span>Отчество</span>
-        </li>
-        <li>
-          <span>Пол</span>
-        </li>
-        <li>
-          <span>Возраст</span>
-        </li>
-        <li>
-          <span>Программа лояльности</span>
+        <li v-for="field in this.fields" :key="field.id">
+          <span>{{field.name}}</span>
         </li>
       </ul>
       <ul class="right-part">
-        <li>
-          <span>Гоша</span>
-        </li>
-        <li>
-          <span>Корнеев</span>
-        </li>
-        <li>
-          <span>Александрович</span>
-        </li>
-        <li>
-          <span>Муж</span>
-        </li>
-        <li>
-          <span>-</span>
-        </li>
-        <li>
-          <span>-</span>
+        <li v-for="field in this.fields" :key="field.id">
+          <span>{{field.data}}</span>
         </li>
       </ul>
     </div>
@@ -58,7 +28,26 @@ export default {
     changePage: function (page) {
       this.$root.$emit("onChangePage", page);
     }
-  }
+  }, beforeMount() {
+    let arr = {};
+    for (let i = 0; i < this.required.length; ++i) {
+      let isInInput = false;
+      let id = -1;
+      for (let j = 0; j < this.fields.length; ++j) {
+        if (this.required[i].name === this.fields[j].name) {
+          isInInput = true;
+          id = j;
+        }
+      }
+      if (isInInput === true) {
+        arr[this.required[i].id] = {name: this.required[i].name, data: this.fields[id].data};
+      } else {
+        arr[this.required[i].id] = {name: this.required[i].name, data: "-"};
+      }
+    }
+    this.fields = arr;
+  },
+  props: ["user", "fields", "required"]
 }
 </script>
 
