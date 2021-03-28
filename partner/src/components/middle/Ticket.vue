@@ -1,6 +1,8 @@
 <template>
-  <div class="register form-box">
-    <div class="header">Personal account</div>
+  <div class="buy-ticket">
+    <div class="header">
+      <span>Required personal data</span>
+    </div>
     <div class="body">
       <ul class="left-part">
         <li>
@@ -16,7 +18,10 @@
           <span>Пол</span>
         </li>
         <li>
-          <span>Баллы компании</span>
+          <span>Возраст</span>
+        </li>
+        <li>
+          <span>Программа лояльности</span>
         </li>
       </ul>
       <ul class="right-part">
@@ -33,28 +38,43 @@
           <span>Муж</span>
         </li>
         <li>
-          <span>Integer.MAX_VALUE</span>
+          <span>-</span>
+        </li>
+        <li>
+          <span>-</span>
         </li>
       </ul>
+    </div>
+    <div class="button-field">
+      <input type="submit" class="buy" value="Buy" @click.prevent="changePage('Success')">
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "User.vue",
+  name: "Ticket",
+  methods: {
+    changePage: function (page) {
+      this.$root.$emit("onChangePage", page);
+    }
+  }
 }
 </script>
 
 <style scoped>
-
 .header {
+  font-weight: bold;
   text-align: center;
-  font-size: 1.5rem;
-  border-color: white;
 }
-.register {
-  border-color: white;
+.body {
+  margin: auto;
+  padding-bottom: 2rem;
+  width: 30rem;
+}
+.button-field {
+  text-align: center;
+  padding-top: 10rem;
 }
 
 </style>

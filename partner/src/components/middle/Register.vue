@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="field error">{{ error }}</div>
-          <div class="button-field">
+        <div class="button-field">
           <input type="submit" class="register" value="Register" @click.prevent="changePage('User')">
         </div>
         <div>
@@ -61,30 +61,12 @@ img {
   padding-left: 5rem;
   padding-bottom: 1rem;
 }
+
+.button-field input {
+  width: 10rem;
+}
+
 .field {
   padding-right: 2rem;
-}
-
-.button-field input {
-  appearance: none;
-  width: 8rem;
-  height: 2.5rem;
-  background-color: #003580;
-  outline: none;
-}
-
-.button-field:before {
-  display: inline-block;
-  width: 0.1rem;
-  padding-left: 0.1rem;
-  content: "";
-}
-
-.button-field input:checked {
-  appearance: revert;
-}
-
-.button-field input {
-  color: white;
 }
 </style>
