@@ -9,3 +9,15 @@ security:
       client-id: server
       client-secret: 123456
       authorized-grant-types: password
+
+spring:
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/usersdb
+    username: postgres
+    password: Asdfg0-/
+    driverClassName: org.postgresql.Driver
+    platform: postgres

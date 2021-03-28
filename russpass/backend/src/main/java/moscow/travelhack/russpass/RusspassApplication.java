@@ -6,11 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Optional;
 
 @SpringBootApplication
 @EnableAuthorizationServer
@@ -26,9 +24,8 @@ public class RusspassApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		accountRepository.deleteAll();
-		accountRepository.save(new Account("den", "123"));
-
+		Optional<Account> temp = accountRepository.findByUsername("mail@yandex.ru");
+		temp.ifPresent(account -> System.out.println(account.getName()));
 		System.out.println("Working...");
 	}
 }
