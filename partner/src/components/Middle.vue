@@ -3,8 +3,8 @@
     <main>
       <Index v-if="page === 'Index'"/>
       <Register v-if="page === 'Register'"/>
-      <User v-if="page === 'User'"/>
-      <Ticket v-if="page === 'Ticket'"/>
+      <User v-if="page === 'User'" :user="user" :fields="fields"/>
+      <Ticket v-if="page === 'Ticket'" :user="user" :filtered="filtered"/>
       <Success v-if="page === 'Success'"/>
     </main>
   </div>
@@ -24,6 +24,7 @@ export default {
       page: "Index",
     }
   },
+  props: ["user", "fields", "required", "filtered"],
   components: {
     Success,
     Ticket,

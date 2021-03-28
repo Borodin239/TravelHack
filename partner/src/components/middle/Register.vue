@@ -2,7 +2,7 @@
   <div class="register form-box">
     <div class="header">Register or Login</div>
     <div class="body">
-      <form @submit.prevent="onRegister">
+      <form>
         <div class="field">
           <div class="name">
             <label for="name">Name</label>
@@ -23,8 +23,10 @@
         <div class="button-field">
           <input type="submit" class="register" value="Register" @click.prevent="changePage('User')">
         </div>
+      </form>
+      <form>
         <div>
-          <a href="#"><img src="../../assets/img/login-russpass.png" alt="russpass"></a>
+          <img src="../../assets/img/login-russpass.png" alt="russpass" v-on:click="onRegister">
         </div>
       </form>
     </div>
@@ -43,7 +45,7 @@ export default {
   },
   methods: {
     onRegister: function () {
-      this.$root.$emit("onRegister", this.login, this.name);
+      this.$root.$emit("onRegister");
     },
     changePage: function (page) {
       this.$root.$emit("onChangePage", page);

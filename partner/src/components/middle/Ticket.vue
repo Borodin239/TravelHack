@@ -5,43 +5,13 @@
     </div>
     <div class="body">
       <ul class="left-part">
-        <li>
-          <span>Имя</span>
-        </li>
-        <li>
-          <span>Фамилия</span>
-        </li>
-        <li>
-          <span>Отчество</span>
-        </li>
-        <li>
-          <span>Пол</span>
-        </li>
-        <li>
-          <span>Возраст</span>
-        </li>
-        <li>
-          <span>Программа лояльности</span>
+        <li v-for="field in this.filtered" :key="field.id">
+          <span>{{field.name}}</span>
         </li>
       </ul>
       <ul class="right-part">
-        <li>
-          <span>Гоша</span>
-        </li>
-        <li>
-          <span>Корнеев</span>
-        </li>
-        <li>
-          <span>Александрович</span>
-        </li>
-        <li>
-          <span>Муж</span>
-        </li>
-        <li>
-          <span>-</span>
-        </li>
-        <li>
-          <span>-</span>
+        <li v-for="field in this.filtered" :key="field.id">
+          <span>{{field.data}}</span>
         </li>
       </ul>
     </div>
@@ -58,7 +28,8 @@ export default {
     changePage: function (page) {
       this.$root.$emit("onChangePage", page);
     }
-  }
+  },
+  props: ["user", "fields", "required", "filtered"]
 }
 </script>
 

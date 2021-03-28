@@ -3,37 +3,13 @@
     <div class="header">Personal account</div>
     <div class="body">
       <ul class="left-part">
-        <li>
-          <span>Имя</span>
-        </li>
-        <li>
-          <span>Фамилия</span>
-        </li>
-        <li>
-          <span>Отчество</span>
-        </li>
-        <li>
-          <span>Пол</span>
-        </li>
-        <li>
-          <span>Баллы компании</span>
+        <li v-for="field in fields" :key="field.id">
+          <span>{{field.name}}</span>
         </li>
       </ul>
       <ul class="right-part">
-        <li>
-          <span>Гоша</span>
-        </li>
-        <li>
-          <span>Корнеев</span>
-        </li>
-        <li>
-          <span>Александрович</span>
-        </li>
-        <li>
-          <span>Муж</span>
-        </li>
-        <li>
-          <span>Integer.MAX_VALUE</span>
+        <li v-for="field in fields" :key="field.id">
+          <span>{{field.data}}</span>
         </li>
       </ul>
     </div>
@@ -43,6 +19,7 @@
 <script>
 export default {
   name: "User.vue",
+  props: ["user", "fields"]
 }
 </script>
 
