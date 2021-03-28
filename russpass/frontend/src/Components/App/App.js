@@ -1,10 +1,10 @@
 import './App.css';
-import Form from "../Form/Form";
+import Auth from "../Auth/Auth";
 import React from "react";
 
 function App() {
   return (
-    <Form/>
+    <Auth/>
   );
 }
 
