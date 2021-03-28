@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-    <Middle :user="user" :fields="fields" :required="required"/>
+    <Middle :user="user" :fields="fields" :required="required" :filtered="filtered"/>
     <Footer/>
   </div>
 </template>
@@ -35,6 +35,13 @@ export default {
         3: {id: 3, name: "Passport number"},
         4: {id: 4, name: "Gender"},
         5: {id: 5, name: "Age"},
+      },
+      filtered: {
+        1: {id: 1, name: "First name", data: "Георгий"},
+        2: {id: 2, name: "Last name", data: "Корнеев"},
+        3: {id: 3, name: "Passport number", data: "-"},
+        4: {id: 4, name: "Gender", data: "Муж"},
+        5: {id: 5, name: "Age", data: "-"}
       }
     }
   },
@@ -57,12 +64,20 @@ export default {
     this.$root.$on("onRegister", () => {
       let config = {
         headers: {
-          "Authorization": "Bearer 15c0f3ac-7ac3-4c3a-8bdb-9a7ed8171901",
+          "Authorization": "Bearer fff3d794-6d22-4e1b-80cd-4072a1a1a040",
         }
       }
       axios.get("http://localhost:8082/api/user_info", config).then(response => {
-        alert(response.data)
+        this.token = response.data;
       });
+      config = {
+        headers: {
+          "Authorization": "Bearer " + this.token
+        }
+      }
+      axios.get("http://localhost:8082/api/user_info", config).then(response => {
+        this.fields = response.data;
+      })
       let arr = {};
       for (let i = 0; i < this.required.length; ++i) {
         let isInInput = false;
