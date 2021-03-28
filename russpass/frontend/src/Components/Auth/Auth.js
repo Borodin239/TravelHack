@@ -40,7 +40,8 @@ class Auth extends React.Component {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }
         }).then(res => {
-            this.setState({token: res.data})
+            // this.setState({token: res.data})
+            return res.data;
         })
         event.preventDefault();
     }
